@@ -1,10 +1,13 @@
 import { StyleSheet, Text, TouchableOpacity, View,Image } from 'react-native'
 import React from 'react'
 import { colors } from '../constants'
+import { useNavigation } from '@react-navigation/native'
+import { HomeScreenNavigationProp } from '../../type'
 
 const Logo = () => {
+  const navigation = useNavigation<HomeScreenNavigationProp>();
   return (
-    <TouchableOpacity style={styles.logoContainer}>
+    <TouchableOpacity style={styles.logoContainer} onPress={() => navigation.navigate('Home')}>
       <View style={styles.logoView}>
         <Image source={require('../assets/logo.png')} style={{width: 100, height: 35}}/>
       </View>
@@ -20,7 +23,6 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     logoView: {
-        
         paddingHorizontal: 8,
         paddingVertical: 2,
         borderRadius: 3,

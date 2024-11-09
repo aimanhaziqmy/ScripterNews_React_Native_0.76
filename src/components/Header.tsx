@@ -2,18 +2,30 @@ import { SafeAreaView, StatusBar, StyleSheet, Text, Touchable, TouchableOpacity,
 import React from 'react'
 import { colors } from '../constants'
 import Logo from './Logo'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import { useNavigation } from '@react-navigation/native'
+import { HomeScreenNavigationProp } from '../../type'
+interface Props {
+    icon?: boolean;
+}   
 
-const Header = () => {
+const Header = ({icon}: Props) => {
+
+  const navigation = useNavigation<HomeScreenNavigationProp>();
+
   return (
     <SafeAreaView>
         <StatusBar barStyle="light-content" />
         <View style={styles.container}>
             <View style={styles.backButton}>
-                <Text style={styles.backButtonText}>News</Text>
+                {
+                    icon ? <TouchableOpacity onPress={() => navigation.goBack()}><Ionicons name="arrow-back" size={24} /></TouchableOpacity> : (<Text style={styles.backButtonText}>News</Text>)
+                }
             </View>
             <Logo />
-            <TouchableOpacity style={styles.signInView}>
+            <TouchableOpacity onPress={() => navigation.navigate('SignIn')} style={styles.signInView}>
                 <Text style={styles.signInText}>Sign In</Text>
+                <Ionicons name="person" size={18} color={colors.blue} />
             </TouchableOpacity>
         </View>
     </SafeAreaView>

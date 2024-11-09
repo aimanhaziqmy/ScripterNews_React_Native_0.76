@@ -9,3 +9,5 @@ export const colors={
     red : "#f44336",
     darkGray : "#616161"
 }
+
+export const Tabs = ["General","Business","Entertainment","Health","Science","Sports","Technology"]
