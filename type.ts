@@ -2,7 +2,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 export type RootStackParamList = {
     Home:undefined;
-    News:undefined;
+    News: {item: NewsData};
     SignIn:undefined
 }
 
@@ -21,3 +21,4 @@ export interface NewsData{
     url: string;
     urlToImage: string;
 }
+

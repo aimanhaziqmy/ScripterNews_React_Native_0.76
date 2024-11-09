@@ -19,10 +19,10 @@ const Header = ({icon}: Props) => {
         <View style={styles.container}>
             <View style={styles.backButton}>
                 {
-                    icon ? <TouchableOpacity onPress={() => navigation.goBack()}><Ionicons name="arrow-back" size={24} /></TouchableOpacity> : (<Text style={styles.backButtonText}>News</Text>)
+                    icon ? <TouchableOpacity onPress={() => navigation.goBack()}><Ionicons name="arrow-back" size={24} /></TouchableOpacity> : (<Logo />)
                 }
             </View>
-            <Logo />
+            { icon ? <Logo /> : null}
             <TouchableOpacity onPress={() => navigation.navigate('SignIn')} style={styles.signInView}>
                 <Text style={styles.signInText}>Sign In</Text>
                 <Ionicons name="person" size={18} color={colors.blue} />

@@ -4,12 +4,12 @@ import { colors } from '../constants'
 import { useNavigation } from '@react-navigation/native'
 import { HomeScreenNavigationProp } from '../../type'
 
-const Logo = () => {
+const Logo = ({height = 35, width = 100}: {height?: number, width?: number} = {height: 35, width: 100}) => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
   return (
     <TouchableOpacity style={styles.logoContainer} onPress={() => navigation.navigate('Home')}>
       <View style={styles.logoView}>
-        <Image source={require('../assets/logo.png')} style={{width: 100, height: 35}}/>
+        <Image source={require('../assets/logo.png')} style={{width, height}}/>
       </View>
     </TouchableOpacity>
   )
